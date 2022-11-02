@@ -1,0 +1,15 @@
+//given an array of integers, num[], and a target integer, target
+//return indices of the two numbers such that they add up to target 
+//assume each input has exactly oen solution 
+//do not use the same element twice
+// Input: nums = [2,7,11,15], target = 9
+// Output: [0,1]
+// Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+//Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
+
+Iteration 1
+Mark the num[0]
+Ad num[0] to every other index
+If num[0] + num[n] != target, we go to num[1] andd repeat the process
+...going to num[2], num[3] and so on 
