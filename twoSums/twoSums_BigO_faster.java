@@ -1,12 +1,40 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class twoSums_BigO_faster {
 
+    //this is the way I wanted to do it, but i didnt do it the right way before. 
+    //You are supposed to use a hashmap
+    //This is the correct solution
+    public int[] twoSumv3(int[] nums, int target) {
+        //create a map
+        Map<Integer, Integer> numToIndex = new HashMap<>();
+
+        //loop through the array
+        for (int i = 0; i < nums.length; i++) {
+
+            //check if the difference of the target from num[i] exists in the hash map
+            //But why? I'll add a breakpoint and check
+            if (numToIndex.containsKey(target - nums[i])) {
+                //then we break the loop and return the index pair to the user
+                return new int[] {numToIndex.get(target - nums[i]), i};
+            }
+
+            //if we didn't find the right index pair in the iteration, we just add the current value we are looking at to the hash map
+            numToIndex.put(nums[i], i);
+        }
+
+        //we return an empty array if we can't find any pairs that add up tot the target
+        return new int[] {};
+    }
+
     //stayed within time limit, but is worse than the O(n^2)
-    public int[] twoSumv2(int[] nums, int target) {
+    //commented it out becuase .toList() wasn't working
+    /*public int[] twoSumv2(int[] nums, int target) {
         int position1 = 0;
         int position2 = -1;
         List<Integer> newList = Arrays.stream(nums).boxed().toList();
@@ -27,7 +55,7 @@ public class twoSums_BigO_faster {
         int[] array = {position1, position2};
 
         return array;
-    }
+    }*/
 
     //this exceeds the time limit put by leetcode, so its even slower
     public int[] twoSumv1(int[] nums, int target) {
