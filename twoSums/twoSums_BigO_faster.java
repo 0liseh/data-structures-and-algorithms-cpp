@@ -1,16 +1,20 @@
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class twoSums_BigO_faster {
 
+    public static void main(String[] args){
+        int [] nums = {3,4,5,7,3};
+        System.out.println("This is the array: " + Arrays.toString(twoSumv3(nums, 6)));
+    }
+
     //this is the way I wanted to do it, but i didnt do it the right way before. 
     //You are supposed to use a hashmap
     //This is the correct solution
-    public int[] twoSumv3(int[] nums, int target) {
+    public static int[] twoSumv3(int[] nums, int target) {
         //create a map
         Map<Integer, Integer> numToIndex = new HashMap<>();
 
